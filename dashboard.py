@@ -162,7 +162,7 @@ for i, row in sorted_df.iterrows():
     </tr>
     """
 
-html_content += """
+html_content += f"""
                                 </tbody>
                             </table>
                         </div>
