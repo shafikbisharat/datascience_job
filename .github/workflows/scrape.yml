@@ -44,3 +44,9 @@ jobs:
           git add jobs_dashboard.html
           git diff --cached --quiet || git commit -m "Update jobs dashboard HTML"
           git push
+
+      - name: Show runner time & event
+        run: |
+          echo "Runner UTC: $(date -u)"
+          echo "Workflow event: $GITHUB_EVENT_NAME"
+
