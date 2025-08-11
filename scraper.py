@@ -7,7 +7,6 @@ import random
 from fake_useragent import UserAgent
 import pandas as pd
 import subprocess
-import argparse
 
 
 class JobScraper:
@@ -145,7 +144,6 @@ class JobScraper:
     def _parse_linkedin_page(self, soup):
         jobs = []
 
-        # Try to get total results
         total_results = 0
         results_text = soup.find('span', class_='results-context-header__job-count')
         if results_text:

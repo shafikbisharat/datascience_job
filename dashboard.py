@@ -1,19 +1,14 @@
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
 from datetime import datetime
 import re
 
 # Load data
 df = pd.read_csv('Data_Science_Jobs_Israel.csv')
-        
-# Convert run_time to datetime
 df['run_time'] = pd.to_datetime(df['run_time'], errors='coerce', format='mixed')
-        
-# Create run identifier
 df['run_id'] = df['run_time'].dt.strftime("%Y-%m-%d %H:%M")
+last_updated_time = df['run_id'].max()
 
-# Generate HTML content
 html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +30,7 @@ html_content = f"""
 <body>
     <div class="header">
         <div class="container">
-            <h1 class="display-4">📊 Data Science Job Market in Israel</h1>
+            <h1 class="display-4">Data Science Job Market in Israel</h1>
             <div class="row mt-4">
                 <div class="col-md-6">
                     <p class="lead">Total jobs collected: <strong>{len(df)}</strong></p>
@@ -176,7 +171,7 @@ html_content += """
         </div>
         
         <footer class="text-center mt-5 mb-3 text-muted">
-            <p>Data Science Job Tracker | Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M')}</p>
+            <p>Data Science Job Tracker | Last updated: {last_updated_time}</p>
         </footer>
     </div>
 
@@ -185,7 +180,7 @@ html_content += """
     <script>
         // Time Series Chart
         Plotly.newPlot('time-series-chart', """
-# Generate time series plot
+
 run_counts = df.groupby('run_id').size().reset_index(name='count')
 run_counts['run_time'] = pd.to_datetime(run_counts['run_id'])
 run_counts = run_counts.sort_values('run_time')
