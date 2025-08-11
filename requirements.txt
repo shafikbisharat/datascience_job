@@ -1,7 +1,6 @@
 pandas==2.2.1
 plotly==5.19.0
 streamlit==1.31.0
-re==2.2.1
 requests==2.31.0
 beautifulsoup4==4.12.3
 argparse==1.1
