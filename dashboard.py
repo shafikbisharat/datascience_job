@@ -194,7 +194,6 @@ fig_time = px.scatter(
     labels={'run_time': 'Scraping Time', 'count': 'Jobs Found'},
     size='count',
     color='count',
-    trendline='lowess',
     hover_data={'run_time': '|%Y-%m-%d %H:%M'}
 )
 
