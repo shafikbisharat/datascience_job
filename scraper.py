@@ -213,7 +213,7 @@ if __name__ == "__main__":
     
     # Scrape sources
     print("Scraping LinkedIn for DS jobs...", flush=True)
-    linkedin_df = scraper.scrape("linkedin.com", POSITION, COUNTRY, max_results=100)
+    linkedin_df = scraper.scrape("linkedin.com", POSITION, COUNTRY, max_results=4000)
     print("Scraping Google Careers for DS jobs...", flush=True)
     google_df = scraper.scrape("google.com", POSITION, COUNTRY)
     
