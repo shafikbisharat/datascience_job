@@ -2,8 +2,8 @@ name: Scrape Data Science Jobs every 12 hours
 
 on:
   schedule:
-    - cron: "*/5 * * * *" 
-  workflow_dispatch: {}      
+    - cron: "0 */12 * * *"  # Every 12 hours
+  workflow_dispatch: {}
 
 jobs:
   scrape:

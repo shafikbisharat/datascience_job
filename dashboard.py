@@ -96,8 +96,14 @@ html_content = f"""
                     <div class="card-body">
                         <h2 class="section-title">Latest Data Science Job Postings</h2>
                         <div class="accordion" id="jobs-accordion">
+
 """
+
+run_counts = df.groupby('run_id').size().reset_index(name='count')
+run_counts['run_time'] = pd.to_datetime(run_counts['run_id'])
+run_counts = run_counts.sort_values('run_time')
 df = df.drop_duplicates(subset=['link']).reset_index(drop=True)
+
 # Generate recent jobs accordion
 latest_jobs = df.sort_values('run_time', ascending=False).head(10)
 for i, row in latest_jobs.iterrows():
@@ -181,9 +187,6 @@ html_content += f"""
         // Time Series Chart
         Plotly.newPlot('time-series-chart', """
 
-run_counts = df.groupby('run_id').size().reset_index(name='count')
-run_counts['run_time'] = pd.to_datetime(run_counts['run_id'])
-run_counts = run_counts.sort_values('run_time')
 
 fig_time = px.scatter(
     run_counts,
