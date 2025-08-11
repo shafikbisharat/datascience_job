@@ -112,7 +112,6 @@ for i, row in latest_jobs.iterrows():
             <div class="accordion-body">
                 <p><strong>Location:</strong> {row['location']}</p>
                 <p><strong>Source:</strong> {row['source']}</p>
-                <p><strong>Posted:</strong> {row.get('posted_at', 'N/A')}</p>
                 <p><strong>Scraped:</strong> {row['run_time'].strftime('%Y-%m-%d %H:%M')}</p>
                 <a href="{row['link']}" class="btn btn-primary" target="_blank">Apply Here</a>
             </div>
