@@ -1,0 +1,35 @@
+name: Scrape Data Science Jobs every 12 hours
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'   
+  workflow_dispatch: {}      
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.8'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run scraper
+        run: |
+          python scraper.py
+
+      - name: Commit CSV back (optional)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Data_Science_Jobs_Israel.csv || true
+          git commit -m "Update jobs CSV from scheduled scrape" || echo "No changes to commit"
+          git push || echo "Push failed (maybe no permission)"
