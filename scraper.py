@@ -213,10 +213,12 @@ if __name__ == "__main__":
     
     # Scrape sources
     print("Scraping LinkedIn for DS jobs...", flush=True)
-    linkedin_df = scraper.scrape("linkedin.com", POSITION, COUNTRY, max_results=4000)
+    linkedin_df = scraper.scrape("linkedin.com", POSITION, COUNTRY, max_results=10000)
+    linkedin_df = linkedin_df.drop_duplicates(subset=['link']).reset_index(drop=True)
     print("Scraping Google Careers for DS jobs...", flush=True)
     google_df = scraper.scrape("google.com", POSITION, COUNTRY)
-    
+    google_df = google_df.drop_duplicates(subset=['link']).reset_index(drop=True)
+
     # Combine results
     all_jobs = pd.concat([linkedin_df, google_df], ignore_index=True)
     
