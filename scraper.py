@@ -204,11 +204,15 @@ def launch_dashboard():
         print(f"Failed to launch dashboard: {e}")
 
 if __name__ == "__main__":
+    print('before parser')
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description='Data Science Job Scraper')
+    print('between parser')
     parser.add_argument('--no-dashboard', action='store_true', 
                         help='Run scraper without launching dashboard')
+    print('after parser')
     args = parser.parse_args()
+    print('after args')
     
     # Configuration
     COUNTRY = "Israel"
