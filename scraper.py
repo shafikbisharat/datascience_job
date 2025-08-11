@@ -204,16 +204,7 @@ def launch_dashboard():
         print(f"Failed to launch dashboard: {e}", flush=True)
 
 if __name__ == "__main__":
-    print('before parser', flush=True)
-    # Parse command-line arguments
-    parser = argparse.ArgumentParser(description='Data Science Job Scraper')
-    print('between parser', flush=True)
-    parser.add_argument('--no-dashboard', action='store_true', 
-                        help='Run scraper without launching dashboard')
-    print('after parser', flush=True)
-    args = parser.parse_args()
-    print('after args', flush=True)
-    
+
     # Configuration
     COUNTRY = "Israel"
     POSITION = "Data Scientist"
@@ -240,7 +231,3 @@ if __name__ == "__main__":
     else:
         all_jobs.to_csv(CSV_FILE, index=False)
         print(f"Created new CSV with {len(all_jobs)} DS jobs", flush=True)
-    
-    # Launch dashboard unless disabled
-    if not args.no_dashboard:
-        launch_dashboard()
