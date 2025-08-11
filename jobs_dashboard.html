@@ -1,0 +1,960 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Jobs in Israel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body { background-color: #f8f9fa; }
+        .card { border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 25px; }
+        .header { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: white; padding: 30px 0; margin-bottom: 30px; }
+        .stat-card { text-align: center; padding: 20px; }
+        .stat-value { font-size: 2.5rem; font-weight: bold; }
+        .section-title { border-left: 5px solid #2575fc; padding-left: 15px; margin: 30px 0 20px; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1 class="display-4">Data Science Job Market in Israel</h1>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <p class="lead">Total jobs collected: <strong>114</strong></p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="lead">Updated: 2025-08-11 13:39</p>
+                </div>
+            </div>
+            <p>Data updated every 12 hours from LinkedIn and Google Careers</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Time Series Section -->
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="section-title">Job Postings Per Scraping Run</h2>
+                        <div id="time-series-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breakdown Section -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="section-title">Top Companies Hiring</h2>
+                        <div id="companies-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="section-title">Job Sources</h2>
+                        <div id="sources-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Keywords Section -->
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="section-title">Job Title Keywords</h2>
+                        <div id="keywords-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Jobs Section -->
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="section-title">Latest Data Science Job Postings</h2>
+                        <div class="accordion" id="jobs-accordion">
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading0">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse0" aria-expanded="false" aria-controls="collapse0">
+                Machine Learning Engineer - IRONSCALES
+            </button>
+        </h2>
+        <div id="collapse0" class="accordion-collapse collapse" aria-labelledby="heading0" data-bs-parent="#jobs-accordion">
+            <div class="accordion-body">
+                <p><strong>Location:</strong> Ramat Gan, Tel Aviv District, Israel</p>
+                <p><strong>Source:</strong> LinkedIn</p>
+                <p><strong>Scraped:</strong> 2025-08-11 13:39</p>
+                <a href="https://il.linkedin.com/jobs/view/machine-learning-engineer-at-ironscales-4282949280" class="btn btn-primary" target="_blank">Apply Here</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading37">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse37" aria-expanded="false" aria-controls="collapse37">
+                Software Engineer - Medāna
+            </button>
+        </h2>
+        <div id="collapse37" class="accordion-collapse collapse" aria-labelledby="heading37" data-bs-parent="#jobs-accordion">
+            <div class="accordion-body">
+                <p><strong>Location:</strong> Tel Aviv-Yafo, Tel Aviv District, Israel</p>
+                <p><strong>Source:</strong> LinkedIn</p>
+                <p><strong>Scraped:</strong> 2025-08-11 13:39</p>
+                <a href="https://il.linkedin.com/jobs/view/software-engineer-at-med%C4%81na-4280692289" class="btn btn-primary" target="_blank">Apply Here</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading53">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse53" aria-expanded="false" aria-controls="collapse53">
+                Full Stack Developer - GoHub
+            </button>
+        </h2>
+        <div id="collapse53" class="accordion-collapse collapse" aria-labelledby="heading53" data-bs-parent="#jobs-accordion">
+            <div class="accordion-body">
+                <p><strong>Location:</strong> Tel Aviv District, Israel</p>
+                <p><strong>Source:</strong> LinkedIn</p>
+                <p><strong>Scraped:</strong> 2025-08-11 13:39</p>
+                <a href="https://il.linkedin.com/jobs/view/full-stack-developer-at-gohub-4281037157" class="btn btn-primary" target="_blank">Apply Here</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading52">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse52" aria-expanded="false" aria-controls="collapse52">
+                Software Engineer - Yael Korentec Technologies
+            </button>
+        </h2>
+        <div id="collapse52" class="accordion-collapse collapse" aria-labelledby="heading52" data-bs-parent="#jobs-accordion">
+            <div class="accordion-body">
+                <p><strong>Location:</strong> North District, Israel</p>
+                <p><strong>Source:</strong> LinkedIn</p>
+                <p><strong>Scraped:</strong> 2025-08-11 13:39</p>
+                <a href="https://il.linkedin.com/jobs/view/software-engineer-at-yael-korentec-technologies-4276074358" class="btn btn-primary" target="_blank">Apply Here</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading51">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse51" aria-expanded="false" aria-controls="collapse51">
+                Cloud Vulnerability Researcher - Paragon
+            </button>
+        </h2>
+        <div id="collapse51" class="accordion-collapse collapse" aria-labelledby="heading51" data-bs-parent="#jobs-accordion">
+            <div class="accordion-body">
+                <p><strong>Location:</strong> Tel Aviv-Yafo, Tel Aviv District, Israel</p>
+                <p><strong>Source:</strong> LinkedIn</p>
+                <p><strong>Scraped:</strong> 2025-08-11 13:39</p>
+                <a href="https://il.linkedin.com/jobs/view/cloud-vulnerability-researcher-at-paragon-4282951922" class="btn btn-primary" target="_blank">Apply Here</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading50">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse50" aria-expanded="false" aria-controls="collapse50">
+                Senior Software Engineer - Kela Technologies
+            </button>
+        </h2>
+        <div id="collapse50" class="accordion-collapse collapse" aria-labelledby="heading50" data-bs-parent="#jobs-accordion">
+            <div class="accordion-body">
+                <p><strong>Location:</strong> Tel Aviv District, Israel</p>
+                <p><strong>Source:</strong> LinkedIn</p>
+                <p><strong>Scraped:</strong> 2025-08-11 13:39</p>
+                <a href="https://il.linkedin.com/jobs/view/senior-software-engineer-at-kela-technologies-4266018186" class="btn btn-primary" target="_blank">Apply Here</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading49">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse49" aria-expanded="false" aria-controls="collapse49">
+                Full Stack Engineer - Yael Korentec Technologies
+            </button>
+        </h2>
+        <div id="collapse49" class="accordion-collapse collapse" aria-labelledby="heading49" data-bs-parent="#jobs-accordion">
+            <div class="accordion-body">
+                <p><strong>Location:</strong> Yehud Monosson, Center District, Israel</p>
+                <p><strong>Source:</strong> LinkedIn</p>
+                <p><strong>Scraped:</strong> 2025-08-11 13:39</p>
+                <a href="https://il.linkedin.com/jobs/view/full-stack-engineer-at-yael-korentec-technologies-4282946815" class="btn btn-primary" target="_blank">Apply Here</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading48">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse48" aria-expanded="false" aria-controls="collapse48">
+                Senior SRE - MLOps Engineer - AI Security - Tenable
+            </button>
+        </h2>
+        <div id="collapse48" class="accordion-collapse collapse" aria-labelledby="heading48" data-bs-parent="#jobs-accordion">
+            <div class="accordion-body">
+                <p><strong>Location:</strong> Tel Aviv-Yafo, Tel Aviv District, Israel</p>
+                <p><strong>Source:</strong> LinkedIn</p>
+                <p><strong>Scraped:</strong> 2025-08-11 13:39</p>
+                <a href="https://il.linkedin.com/jobs/view/senior-sre-mlops-engineer-ai-security-at-tenable-4270428350" class="btn btn-primary" target="_blank">Apply Here</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading47">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse47" aria-expanded="false" aria-controls="collapse47">
+                System Qualification Engineer - UVeye
+            </button>
+        </h2>
+        <div id="collapse47" class="accordion-collapse collapse" aria-labelledby="heading47" data-bs-parent="#jobs-accordion">
+            <div class="accordion-body">
+                <p><strong>Location:</strong> Tel Aviv-Yafo, Tel Aviv District, Israel</p>
+                <p><strong>Source:</strong> LinkedIn</p>
+                <p><strong>Scraped:</strong> 2025-08-11 13:39</p>
+                <a href="https://il.linkedin.com/jobs/view/system-qualification-engineer-at-uveye-4283018315" class="btn btn-primary" target="_blank">Apply Here</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading46">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse46" aria-expanded="false" aria-controls="collapse46">
+                Experienced Backend Developer - CloudShare
+            </button>
+        </h2>
+        <div id="collapse46" class="accordion-collapse collapse" aria-labelledby="heading46" data-bs-parent="#jobs-accordion">
+            <div class="accordion-body">
+                <p><strong>Location:</strong> Ramat Gan, Tel Aviv District, Israel</p>
+                <p><strong>Source:</strong> LinkedIn</p>
+                <p><strong>Scraped:</strong> 2025-08-11 13:39</p>
+                <a href="https://il.linkedin.com/jobs/view/experienced-backend-developer-at-cloudshare-4283166421" class="btn btn-primary" target="_blank">Apply Here</a>
+            </div>
+        </div>
+    </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Table Section -->
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="section-title">All Job Listings</h2>
+                        <div style="overflow-x: auto;">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Company</th>
+                                        <th>Location</th>
+                                        <th>Source</th>
+                                        <th>Scraped At</th>
+                                        <th>Link</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+    <tr>
+        <td>Machine Learning Engineer</td>
+        <td>IRONSCALES</td>
+        <td>Ramat Gan, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/machine-learning-engineer-at-ironscales-4282949280" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Software Engineer</td>
+        <td>Medāna</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/software-engineer-at-med%C4%81na-4280692289" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Full Stack Developer</td>
+        <td>GoHub</td>
+        <td>Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/full-stack-developer-at-gohub-4281037157" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Software Engineer</td>
+        <td>Yael Korentec Technologies</td>
+        <td>North District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/software-engineer-at-yael-korentec-technologies-4276074358" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Cloud Vulnerability Researcher</td>
+        <td>Paragon</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/cloud-vulnerability-researcher-at-paragon-4282951922" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Senior Software Engineer</td>
+        <td>Kela Technologies</td>
+        <td>Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/senior-software-engineer-at-kela-technologies-4266018186" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Full Stack Engineer</td>
+        <td>Yael Korentec Technologies</td>
+        <td>Yehud Monosson, Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/full-stack-engineer-at-yael-korentec-technologies-4282946815" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Senior SRE - MLOps Engineer - AI Security</td>
+        <td>Tenable</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/senior-sre-mlops-engineer-ai-security-at-tenable-4270428350" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>System Qualification Engineer</td>
+        <td>UVeye</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/system-qualification-engineer-at-uveye-4283018315" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Experienced Backend Developer</td>
+        <td>CloudShare</td>
+        <td>Ramat Gan, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/experienced-backend-developer-at-cloudshare-4283166421" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Software Quality Assurance Engineer</td>
+        <td>Dialog</td>
+        <td>Ness Ziona, Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/software-quality-assurance-engineer-at-dialog-4281024355" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Principal Engineer Software (Cortex Cloud)</td>
+        <td>Palo Alto Networks</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/principal-engineer-software-cortex-cloud-at-palo-alto-networks-4283116618" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Data Platform Software Engineer</td>
+        <td>Varonis</td>
+        <td>Herzliya, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/data-platform-software-engineer-at-varonis-4283160406" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Principal Engineer Software (Cortex platform infra)</td>
+        <td>Palo Alto Networks</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/principal-engineer-software-cortex-platform-infra-at-palo-alto-networks-4283144188" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Software Engineer</td>
+        <td>Dialog</td>
+        <td>Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/software-engineer-at-dialog-4281018648" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Principal Engineer Software (Cortex platform infra)</td>
+        <td>Palo Alto Networks</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/principal-engineer-software-cortex-platform-infra-at-palo-alto-networks-4283141387" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Full Stack Software Engineer</td>
+        <td>Claroty</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/full-stack-software-engineer-at-claroty-4282965210" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Fullstack Engineer</td>
+        <td>AI21 Labs</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/fullstack-engineer-at-ai21-labs-4282951103" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Full Stack Engineer</td>
+        <td>Zenity</td>
+        <td>Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/full-stack-engineer-at-zenity-4252567288" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Product Analyst</td>
+        <td>Chargeflow</td>
+        <td>Modiin-Maccabim-Reut, Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/product-analyst-at-chargeflow-4283187886" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Senior Staff Software Engineer, Google Cloud</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/135087955571024582-senior-staff-software-engineer-google-cloud?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Firmware Engineer, Networking, Google Cloud</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/83652509565887174-firmware-engineer-networking-google-cloud?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Senior Software Engineer, iOS, Google Growth</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/111599440854164166-senior-software-engineer-ios-google-growth?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Software Engineer II, Search Console</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/105751355133436614-software-engineer-ii-search-console?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Software Engineer III, Google Cloud Security, Playbooks Infrastructure</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/104389950627029702-software-engineer-iii-google-cloud-security-playbooks-infrastructure?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Software Engineer II, Google Growth</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/121028852573971142-software-engineer-ii-google-growth?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Software Engineer III, Search</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/127108770697224902-software-engineer-iii-search?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Software Engineer, CPU Performance Modeling, Google Cloud</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/113855561941820102-software-engineer-cpu-performance-modeling-google-cloud?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Principal Software Engineer - DevOps (Cortex Cloud)</td>
+        <td>Palo Alto Networks</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/principal-software-engineer-devops-cortex-cloud-at-palo-alto-networks-4283120046" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Software Engineer III, Cloud Networking, Google Cloud</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/91079973678260934-software-engineer-iii-cloud-networking-google-cloud?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Software Engineer III, Database Migration Service, Google Cloud</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/106218803536241350-software-engineer-iii-database-migration-service-google-cloud?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Part-Time Research Scientist PhD Intern, 2026</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/90044366868882118-parttime-research-scientist-phd-intern-2026?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Senior Software Engineer, CPU Performance Modeling</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/92045373878477510-senior-software-engineer-cpu-performance-modeling?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Part-Time Software Engineering PhD Intern, 2026</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/94097166728864454-parttime-software-engineering-phd-intern-2026?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Student Position – Generative AI R&D (MSc Student)</td>
+        <td>Ingersoll Rand</td>
+        <td>Herzliya, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/student-position-%E2%80%93-generative-ai-r-d-msc-student-at-ingersoll-rand-4282946943" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Java/Kotlin Staff Software Software (Cortex Cloud)</td>
+        <td>Palo Alto Networks</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/java-kotlin-staff-software-software-cortex-cloud-at-palo-alto-networks-4283117477" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Backend Developer</td>
+        <td>IRONSCALES</td>
+        <td>Ramat Gan, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/backend-developer-at-ironscales-4282947509" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Data Scientist</td>
+        <td>GO4iT</td>
+        <td>Petah Tikva, Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/data-scientist-at-go4it-4281021810" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Data Analyst - Courier Supply</td>
+        <td>Wolt</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/data-analyst-courier-supply-at-wolt-4181506055" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Artificial Intelligence Researcher</td>
+        <td>Dialog</td>
+        <td>Netanya, Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/artificial-intelligence-researcher-at-dialog-4281029445" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Algorithm Engineer</td>
+        <td>Fetcherr</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/algorithm-engineer-at-fetcherr-4282961727" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>QA and Automation Engineer</td>
+        <td>NVIDIA</td>
+        <td>Raanana, Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/qa-and-automation-engineer-at-nvidia-4270494048" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>QA and Automation Engineer</td>
+        <td>NVIDIA</td>
+        <td>Yokneam Ilit, North District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/qa-and-automation-engineer-at-nvidia-4270493070" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Python Developer</td>
+        <td>Moveo Group</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/python-developer-at-moveo-group-4282458217" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>QA and Automation Engineer</td>
+        <td>NVIDIA</td>
+        <td>Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/qa-and-automation-engineer-at-nvidia-4270489311" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Sr. Software Engineer- ML Team</td>
+        <td>DoubleVerify</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/sr-software-engineer-ml-team-at-doubleverify-4035125746" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Machine Learning Engineer</td>
+        <td>Gotfriends</td>
+        <td>Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/machine-learning-engineer-at-gotfriends-4280698621" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Junior Software Engineer (AI)</td>
+        <td>Vonage</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/junior-software-engineer-ai-at-vonage-4281038927" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Jeen AI</td>
+        <td>abra</td>
+        <td>Haifa, Haifa District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/jeen-ai-at-abra-4282951101" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Experienced Data Scientist</td>
+        <td>NAYA Technologies (part of EPAM Systems, Inc.)</td>
+        <td>Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/experienced-data-scientist-at-naya-technologies-part-of-epam-systems-inc-4281057055" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Data Scientist</td>
+        <td>Gotfriends</td>
+        <td>Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/data-scientist-at-gotfriends-4280696785" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Machine Learning Engineer</td>
+        <td>DRW</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/machine-learning-engineer-at-drw-4020355994" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Data Scientist Engineer</td>
+        <td>Fetcherr</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/data-scientist-engineer-at-fetcherr-4282966098" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Data Scientist</td>
+        <td>Shavit Software</td>
+        <td>Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/data-scientist-at-shavit-software-4266724724" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Solution Engineer EMEA</td>
+        <td>MetalBear</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/solution-engineer-emea-at-metalbear-4283119166" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>AI Engineer</td>
+        <td>Gotfriends</td>
+        <td>Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/ai-engineer-at-gotfriends-4281003304" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Python Developer</td>
+        <td>Dialog</td>
+        <td>Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/python-developer-at-dialog-4281020187" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Big Data Developer</td>
+        <td>Pipl</td>
+        <td>Petah Tikva, Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/big-data-developer-at-pipl-4283181257" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Data Software Engineer</td>
+        <td>BMC Software</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/data-software-engineer-at-bmc-software-4252297352" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>DevOps Engineer</td>
+        <td>Connecteam</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/devops-engineer-at-connecteam-4138134990" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Senior Deep Learning Researcher, Diffusion</td>
+        <td>NVIDIA</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/senior-deep-learning-researcher-diffusion-at-nvidia-4231329910" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Full-Stack Engineer (IL)</td>
+        <td>april</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/full-stack-engineer-il-at-april-4281040364" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Senior Python Developer</td>
+        <td>DeepKeep</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/senior-python-developer-at-deepkeep-4283165239" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Observability & Monitoring Engineer</td>
+        <td>Kela Technologies</td>
+        <td>Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/observability-monitoring-engineer-at-kela-technologies-4266031471" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Customer Focus Windows Internals Engineer (Cortex XDR)</td>
+        <td>Palo Alto Networks</td>
+        <td>Tel Aviv-Yafo, Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/customer-focus-windows-internals-engineer-cortex-xdr-at-palo-alto-networks-4283158982" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Algorithm Engineer</td>
+        <td>PEAK- HR AS A SERVICE</td>
+        <td>Rehovot, Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/algorithm-engineer-at-peak-hr-as-a-service-4280679528" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Senior Data Scientist and System Architect</td>
+        <td>NVIDIA</td>
+        <td>Yokneam Ilit, North District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/senior-data-scientist-and-system-architect-at-nvidia-4216283342" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>19574 - Software Tech Lead - Python</td>
+        <td>Qualitest</td>
+        <td>Netanya, Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/19574-software-tech-lead-python-at-qualitest-4281041676" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Senior Data Scientist</td>
+        <td>Prisma Photonics</td>
+        <td>Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/senior-data-scientist-at-prisma-photonics-4252489886" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Senior ML Engineer</td>
+        <td>Ethosia</td>
+        <td>Tel Aviv District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/senior-ml-engineer-at-ethosia-4281051800" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Python Developer</td>
+        <td>Gotfriends</td>
+        <td>Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/python-developer-at-gotfriends-4281004457" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Senior Data Scientist and System Architect</td>
+        <td>NVIDIA</td>
+        <td>Raanana, Center District, Israel</td>
+        <td>LinkedIn</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://il.linkedin.com/jobs/view/senior-data-scientist-and-system-architect-at-nvidia-4216285195" target="_blank">Apply</a></td>
+    </tr>
+    
+    <tr>
+        <td>Design Integration Engineer, Google Cloud, Networking</td>
+        <td>Google</td>
+        <td>Israel</td>
+        <td>Google Careers</td>
+        <td>2025-08-11 13:39</td>
+        <td><a href="https://www.google.com/about/careers/applications/jobs/results/94971537244725958-design-integration-engineer-google-cloud-networking?q=%27Data+Scientist%27&location=Israel" target="_blank">Apply</a></td>
+    </tr>
+    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="text-center mt-5 mb-3 text-muted">
+            <p>Data Science Job Tracker | Last updated: 2025-08-11 13:39</p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap & Plotly Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Time Series Chart
+        Plotly.newPlot('time-series-chart', {"data":[{"hovertemplate":"Scraping Time=%{x|%Y-%m-%d %H:%M}\u003cbr\u003eJobs Found=%{marker.color}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","marker":{"color":[73],"coloraxis":"coloraxis","size":12,"sizemode":"area","sizeref":0.1825,"symbol":"circle","line":{"color":"DarkSlateGrey","width":2}},"mode":"markers","name":"","orientation":"v","showlegend":false,"x":["2025-08-11T13:39:00"],"xaxis":"x","y":[73],"yaxis":"y","type":"scatter","textfont":{"size":10}}],"layout":{"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Scraping Time"},"tickformat":"%Y-%m-%d %H:%M"},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Jobs Found"}},"coloraxis":{"colorbar":{"title":{"text":"Jobs Found"}},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"legend":{"tracegroupgap":0,"itemsizing":"constant"},"title":{"text":"Data Science Jobs Per Scraping Run"},"hovermode":"x unified","height":500}}, {});
+
+        // Companies Chart
+        Plotly.newPlot('companies-chart', {"data":[{"alignmentgroup":"True","hovertemplate":"variable=count\u003cbr\u003eJob Count=%{x}\u003cbr\u003ecompany=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"count","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"count","offsetgroup":"count","orientation":"h","showlegend":true,"textposition":"auto","x":[14,6,6,4,4,2,2,2,2,1],"xaxis":"x","y":["Google","NVIDIA","Palo Alto Networks","Dialog","Gotfriends","Yael Korentec Technologies","IRONSCALES","Kela Technologies","Fetcherr","Tenable"],"yaxis":"y","type":"bar"}],"layout":{"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Job Count"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"company"}},"legend":{"title":{"text":"variable"},"tracegroupgap":0},"title":{"text":"Top Companies"},"barmode":"relative","showlegend":false,"height":400}}, {});
+
+        // Sources Chart
+        Plotly.newPlot('sources-chart', {"data":[{"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"hovertemplate":"source=%{label}\u003cbr\u003evalue=%{value}\u003cextra\u003e\u003c\u002fextra\u003e","labels":["LinkedIn","Google Careers"],"legendgroup":"","name":"","showlegend":true,"values":[59,14],"type":"pie"}],"layout":{"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"legend":{"tracegroupgap":0},"title":{"text":"Job Sources Distribution"},"height":400}}, {});
+
+        // Keywords Chart
+        Plotly.newPlot('keywords-chart', {"data":[{"alignmentgroup":"True","hovertemplate":"variable=count\u003cbr\u003eCount=%{x}\u003cbr\u003eKeyword=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"count","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"count","offsetgroup":"count","orientation":"h","showlegend":true,"textposition":"auto","x":[47,28,12,12,9,9,6,5,5,5,4,4,3,3,3,3,3,3],"xaxis":"x","y":["engineer","software","data","cloud","scientist","google","cortex","stack","full","python","learning","principal","platform","system","machine","automation","networking","researcher"],"yaxis":"y","type":"bar"}],"layout":{"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Count"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Keyword"}},"legend":{"title":{"text":"variable"},"tracegroupgap":0},"title":{"text":"Most Common Keywords in Job Titles"},"barmode":"relative","height":500,"showlegend":false}}, {});
+    </script>
+</body>
+</html>
