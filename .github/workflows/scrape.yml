@@ -22,22 +22,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Debug print
-        run: |
-          echo "Workflow started"
-
-      - name: Debug print
-        run: |
-          python -c "print('Hello from Python in GH Actions!')"
-
       - name: Run scraper
         run: |
           python scraper.py
 
-      - name: Commit CSV back (optional)
+      - name: Save CSV
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add Data_Science_Jobs_Israel.csv || true
           git commit -m "Update jobs CSV from scheduled scrape" || echo "No changes to commit"
           git push || echo "Push failed (maybe no permission)"
+
+      - name: Generate dashboard HTML
+        run: python dashboard.py          
