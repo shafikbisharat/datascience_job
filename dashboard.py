@@ -37,7 +37,7 @@ html_content = f"""
                     <p class="lead">Total jobs collected: <strong>{len(df)}</strong></p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="lead">Updated: {datetime.now().strftime('%Y-%m-%d %H:%M')}</p>
+                    <p class="lead">Updated: {last_updated_time}</p>
                 </div>
             </div>
             <p>Data updated every 12 hours from LinkedIn and Google Careers</p>
@@ -97,7 +97,7 @@ html_content = f"""
                         <h2 class="section-title">Latest Data Science Job Postings</h2>
                         <div class="accordion" id="jobs-accordion">
 """
-
+df = df.drop_duplicates(subset=['link']).reset_index(drop=True)
 # Generate recent jobs accordion
 latest_jobs = df.sort_values('run_time', ascending=False).head(10)
 for i, row in latest_jobs.iterrows():

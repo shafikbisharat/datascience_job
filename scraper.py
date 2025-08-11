@@ -218,12 +218,12 @@ if __name__ == "__main__":
     google_df = scraper.scrape("google.com", POSITION, COUNTRY)
     
     # Combine results
-    all_jobs = pd.concat([linkedin_df, google_df], ignore_index=True).drop_duplicates(subset=['link'])
+    all_jobs = pd.concat([linkedin_df, google_df], ignore_index=True)
     
     # Save/update CSV
     if os.path.exists(CSV_FILE):
         existing = pd.read_csv(CSV_FILE)
-        updated = pd.concat([existing, all_jobs]).drop_duplicates(subset=['link'])
+        updated = pd.concat([existing, all_jobs])
         updated.to_csv(CSV_FILE, index=False)
         print(f"Updated CSV. Total DS jobs: {len(updated)}", flush=True)
     else:
