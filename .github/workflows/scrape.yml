@@ -22,12 +22,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-	- name: Debug print
-  	  run: echo "Workflow started"
-  
-	- name: Run scraper (debug)
-  	  run: |
-    	    python -c "print('Hello from Python in GH Actions!')"
+      - name: Debug print
+        run: |
+          echo "Workflow started"
+
+      - name: Debug print
+        run: |
+          python -c "print('Hello from Python in GH Actions!')"
 
       - name: Run scraper
         run: |
