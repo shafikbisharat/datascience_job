@@ -80,12 +80,12 @@ class JobScraper:
                         "run_time": self.run_time
                     })
                 except Exception as e:
-                    print(f"Error parsing Google job card: {e}")
+                    print(f"Error parsing Google job card: {e}", flush=True)
                     continue
                     
-            print(f"Google Careers: Found {len(all_jobs)} DS jobs")
+            print(f"Google Careers: Found {len(all_jobs)} DS jobs", flush=True)
         except Exception as e:
-            print(f"Google Careers error: {str(e)}")
+            print(f"Google Careers error: {str(e)}", flush=True)
         return pd.DataFrame(all_jobs)
 
     def _scrape_linkedin(self, position, country, max_results):
@@ -113,7 +113,7 @@ class JobScraper:
                     response = self.session.get(base_url, params=params, timeout=15)
                     if response.status_code == 429:
                         wait = 60 + random.randint(0, 30)
-                        print(f"Rate limited. Waiting {wait} seconds...")
+                        print(f"Rate limited. Waiting {wait} seconds...", flush=True)
                         time.sleep(wait)
                         continue
                     response.raise_for_status()
@@ -125,19 +125,19 @@ class JobScraper:
                     all_jobs.extend(jobs)
                     
                     if len(jobs) == 0:
-                        print("No more jobs found")
+                        print("No more jobs found", flush=True)
                         return pd.DataFrame(all_jobs)
                     
-                    print(f"Page {start//25 + 1}: Added {len(jobs)} jobs (Total: {len(all_jobs)})")
+                    print(f"Page {start//25 + 1}: Added {len(jobs)} jobs (Total: {len(all_jobs)})", flush=True)
                     start += 25
                     time.sleep(random.uniform(2, 4))
                     break
                     
                 except Exception as e:
-                    print(f"Attempt {attempt+1} failed: {str(e)}")
+                    print(f"Attempt {attempt+1} failed: {str(e)}", flush=True)
                     time.sleep(10)
             else:
-                print("Max retries exceeded")
+                print("Max retries exceeded", flush=True)
                 break
                 
         return pd.DataFrame(all_jobs[:max_results])
@@ -180,9 +180,9 @@ class JobScraper:
 
 def launch_dashboard():
     """Launch the Streamlit dashboard in a separate process"""
-    print("\nLaunching dashboard...")
-    print("Dashboard will open in your default browser automatically")
-    print("Press Ctrl+C in this terminal to stop both the dashboard and scraper")
+    print("\nLaunching dashboard...", flush=True)
+    print("Dashboard will open in your default browser automatically", flush=True)
+    print("Press Ctrl+C in this terminal to stop both the dashboard and scraper", flush=True)
     
     try:
         # Run the dashboard in a subprocess
@@ -195,24 +195,24 @@ def launch_dashboard():
         
         # Stream the output so we can see it
         for line in iter(dashboard_process.stdout.readline, ''):
-            print(line, end='')
+            print(line, end='', flush=True)
         
         dashboard_process.wait()
     except FileNotFoundError:
-        print("Error: Streamlit not found. Please install with: pip install streamlit")
+        print("Error: Streamlit not found. Please install with: pip install streamlit", flush=True)
     except Exception as e:
-        print(f"Failed to launch dashboard: {e}")
+        print(f"Failed to launch dashboard: {e}", flush=True)
 
 if __name__ == "__main__":
-    print('before parser')
+    print('before parser', flush=True)
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description='Data Science Job Scraper')
-    print('between parser')
+    print('between parser', flush=True)
     parser.add_argument('--no-dashboard', action='store_true', 
                         help='Run scraper without launching dashboard')
-    print('after parser')
+    print('after parser', flush=True)
     args = parser.parse_args()
-    print('after args')
+    print('after args', flush=True)
     
     # Configuration
     COUNTRY = "Israel"
@@ -223,9 +223,9 @@ if __name__ == "__main__":
     scraper = JobScraper()
     
     # Scrape sources
-    print("Scraping LinkedIn for DS jobs...")
+    print("Scraping LinkedIn for DS jobs...", flush=True)
     linkedin_df = scraper.scrape("linkedin.com", POSITION, COUNTRY, max_results=100)
-    print("Scraping Google Careers for DS jobs...")
+    print("Scraping Google Careers for DS jobs...", flush=True)
     google_df = scraper.scrape("google.com", POSITION, COUNTRY)
     
     # Combine results
@@ -236,10 +236,10 @@ if __name__ == "__main__":
         existing = pd.read_csv(CSV_FILE)
         updated = pd.concat([existing, all_jobs]).drop_duplicates(subset=['link'])
         updated.to_csv(CSV_FILE, index=False)
-        print(f"Updated CSV. Total DS jobs: {len(updated)}")
+        print(f"Updated CSV. Total DS jobs: {len(updated)}", flush=True)
     else:
         all_jobs.to_csv(CSV_FILE, index=False)
-        print(f"Created new CSV with {len(all_jobs)} DS jobs")
+        print(f"Created new CSV with {len(all_jobs)} DS jobs", flush=True)
     
     # Launch dashboard unless disabled
     if not args.no_dashboard:
