@@ -13,11 +13,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException
+from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException, TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
 import re
-
 
 class JobScraper:
     def __init__(self):
@@ -25,6 +24,7 @@ class JobScraper:
         self.session = requests.Session()
         self.session.headers = self._get_headers()
         self.run_time = datetime.now().strftime("%Y-%m-%d %H:%M")
+        self.jobs = []
 
     def _get_headers(self):
         return {
@@ -92,7 +92,7 @@ class JobScraper:
                     print(f"Error parsing Google job card: {e}", flush=True)
                     continue
                     
-            print(f"Google Careers: Found {len(all_jobs)} DS jobs", flush=True)
+            print(f"Google Careers: Found {len(all_jobs)} jobs", flush=True)
         except Exception as e:
             print(f"Google Careers error: {str(e)}", flush=True)
         return pd.DataFrame(all_jobs)
@@ -135,12 +135,12 @@ class JobScraper:
                 
                 jobs.append({
                     "title": title,
-                        "company": company,
-                        "location": location,
-                        "link": link,
-                        "source": "LinkedIn",
-                        "job_id": job_id,
-                        "run_time": self.run_time
+                    "company": company,
+                    "location": location,
+                    "link": link,
+                    "source": "LinkedIn",
+                    "job_id": job_id,
+                    "run_time": self.run_time
                 })
                 
             except Exception as e:
@@ -157,22 +157,41 @@ class JobScraper:
         
         # Set up Chrome options
         chrome_options = Options()
-        chrome_options.add_argument('--headless')
-        chrome_options.add_argument('--no-sandbox')
-        chrome_options.add_argument('--disable-dev-shm-usage')
-        chrome_options.add_argument('--disable-gpu')
+        if os.getenv('GITHUB_ACTIONS') == 'true':
+            # Running in GitHub Actions
+            chrome_options.add_argument('--headless=new')
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--disable-dev-shm-usage')
+            chrome_options.add_argument('--disable-gpu')
+            chrome_options.add_argument('--disable-software-rasterizer')
+            chrome_options.add_argument('--disable-extensions')
+            chrome_options.add_argument('--disable-logging')
+            chrome_options.add_argument('--log-level=3')
+            chrome_options.add_argument('--output=/dev/null')
+            chrome_options.binary_location = '/usr/bin/chromium-browser'
+            service = Service(executable_path='/usr/bin/chromedriver')
+        else:
+            # Running locally
+            chrome_options.add_argument('--headless')
+            chrome_options.add_argument('--disable-gpu')
+            service = Service(ChromeDriverManager().install())
+        
         chrome_options.add_argument('--window-size=1920,1080')
+        chrome_options.add_argument('--start-maximized')
+        chrome_options.add_argument('--disable-blink-features=AutomationControlled')
         chrome_options.add_argument(f'user-agent={self.ua.random}')
+        chrome_options.add_experimental_option('excludeSwitches', ['enable-logging', 'enable-automation'])
+        chrome_options.add_experimental_option('useAutomationExtension', False)
         
         # Initialize WebDriver
-        driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()),
-            options=chrome_options
-        )
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+        driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
         
         try:
             # Build URL
             base_url = "https://www.linkedin.com/jobs/search"
+            position = position.replace(' ', '%20')
+            country = country.replace(' ', '%20')
             params = {
                 'keywords': position,
                 'location': country,
@@ -182,40 +201,53 @@ class JobScraper:
             query_string = '&'.join(f"{k}={v}" for k, v in params.items())
             url = f"{base_url}?{query_string}"
             
+            print(f"Opening LinkedIn: {url}")
             driver.get(url)
-            print(f"Opened LinkedIn: {url}")
             
             # Wait for initial jobs to load
-            WebDriverWait(driver, 15).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, ".jobs-search__results-list"))
-            )
-            time.sleep(3)  # Additional wait for content
+            try:
+                WebDriverWait(driver, 20).until(
+                    EC.presence_of_element_located((By.CSS_SELECTOR, ".jobs-search__results-list, .jobs-search__results"))
+                )
+                print("Job results container loaded")
+            except TimeoutException:
+                print("Timed out waiting for job results container")
+                return pd.DataFrame()
             
             # Initialize scroll variables
             last_height = driver.execute_script("return document.body.scrollHeight")
             consecutive_no_new_jobs = 0
             job_count = 0
             scroll_attempts = 0
-            MAX_SCROLL_ATTEMPTS = 20
+            MAX_SCROLL_ATTEMPTS = 30
             
             while job_count < max_results and scroll_attempts < MAX_SCROLL_ATTEMPTS:
                 scroll_attempts += 1
                 
                 # Scroll to bottom with JavaScript
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                print(f"Scroll attempt {scroll_attempts}: Scrolled to bottom")
                 
-                # Random wait for content to load
-                time.sleep(random.uniform(1.5, 3.0))
+                # Wait for content to load (longer wait in CI)
+                wait_time = random.uniform(2.0, 4.0) if os.getenv('GITHUB_ACTIONS') == 'true' else random.uniform(1.5, 3.0)
+                time.sleep(wait_time)
                 
                 # Try clicking "See more jobs" button if available
                 try:
-                    see_more_button = driver.find_element(
+                    see_more_buttons = driver.find_elements(
                         By.XPATH, "//button[contains(@aria-label, 'See more jobs')]"
                     )
-                    if see_more_button.is_displayed():
-                        ActionChains(driver).move_to_element(see_more_button).click().perform()
-                        print("Clicked 'See more jobs' button")
-                        time.sleep(2)
+                    for button in see_more_buttons:
+                        if button.is_displayed():
+                            # Scroll to button first
+                            driver.execute_script("arguments[0].scrollIntoView(true);", button)
+                            time.sleep(0.5)
+                            
+                            # Click using JavaScript
+                            driver.execute_script("arguments[0].click();", button)
+                            print("Clicked 'See more jobs' button")
+                            time.sleep(3)
+                            break
                 except (NoSuchElementException, ElementNotInteractableException):
                     pass
                 
@@ -245,19 +277,14 @@ class JobScraper:
                 print(f"Added {len(new_jobs)} new jobs (Total: {job_count})")
                 
                 # Exit conditions
-                if consecutive_no_new_jobs >= 3:
+                if consecutive_no_new_jobs >= 5:
                     print("No new jobs detected after multiple scrolls")
                     break
                 if job_count >= max_results:
                     print(f"Reached max results ({max_results})")
                     break
             
-            # Save final page source for debugging
-            with open('linkedin_final.html', 'w', encoding='utf-8') as f:
-                f.write(driver.page_source)
-            print("Saved final page source to linkedin_final.html")
-            
-            return pd.DataFrame(all_jobs[:max_results])
+            return pd.DataFrame(all_jobs)
         
         except Exception as e:
             print(f"Error during LinkedIn scraping: {str(e)}")
@@ -266,15 +293,10 @@ class JobScraper:
             return pd.DataFrame()
         finally:
             driver.quit()
-    
-      
 
 def launch_dashboard():
     """Launch the Streamlit dashboard in a separate process"""
     print("\nLaunching dashboard...", flush=True)
-    print("Dashboard will open in your default browser automatically", flush=True)
-    print("Press Ctrl+C in this terminal to stop both the dashboard and scraper", flush=True)
-    
     try:
         # Run the dashboard in a subprocess
         dashboard_process = subprocess.Popen(
@@ -295,7 +317,6 @@ def launch_dashboard():
         print(f"Failed to launch dashboard: {e}", flush=True)
 
 if __name__ == "__main__":
-
     # Configuration
     COUNTRY = "Israel"
     POSITION = "Data Scientist"
@@ -307,20 +328,27 @@ if __name__ == "__main__":
     # Scrape sources
     print("Scraping LinkedIn for DS jobs...", flush=True)
     linkedin_df = scraper.scrape("linkedin.com", POSITION, COUNTRY, max_results=10000)
-    linkedin_df = linkedin_df.drop_duplicates(subset=['link']).reset_index(drop=True)
     print("Scraping Google Careers for DS jobs...", flush=True)
     google_df = scraper.scrape("google.com", POSITION, COUNTRY)
-    google_df = google_df.drop_duplicates(subset=['link']).reset_index(drop=True)
-
+    
     # Combine results
     all_jobs = pd.concat([linkedin_df, google_df], ignore_index=True)
+    
+    # Deduplicate based on link
+    all_jobs = all_jobs.drop_duplicates(subset=['link'])
     
     # Save/update CSV
     if os.path.exists(CSV_FILE):
         existing = pd.read_csv(CSV_FILE)
-        updated = pd.concat([existing, all_jobs])
-        updated.to_csv(CSV_FILE, index=False)
-        print(f"Updated CSV. Total DS jobs: {len(updated)}", flush=True)
+        # Combine and deduplicate
+        combined = pd.concat([existing, all_jobs])
+        combined = combined.drop_duplicates(subset=['link'])
+        combined.to_csv(CSV_FILE, index=False)
+        print(f"Updated CSV. Total unique jobs: {len(combined)}", flush=True)
     else:
         all_jobs.to_csv(CSV_FILE, index=False)
-        print(f"Created new CSV with {len(all_jobs)} DS jobs", flush=True)
+        print(f"Created new CSV with {len(all_jobs)} jobs", flush=True)
+    
+    # Launch dashboard locally
+    if os.getenv('GITHUB_ACTIONS') != 'true':
+        launch_dashboard()
