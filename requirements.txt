@@ -4,3 +4,5 @@ requests==2.31.0
 beautifulsoup4==4.12.3
 argparse==1.1
 fake-useragent==1.4.0
+selenium==4.32.0
+webdriver-manager==4.0.2
