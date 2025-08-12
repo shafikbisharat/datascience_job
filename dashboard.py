@@ -34,7 +34,7 @@ html_content = f"""
             <h1 class="display-4">Data Science Job Market in Israel</h1>
             <div class="row mt-4">
                 <div class="col-md-6">
-                    <p class="lead">Total jobs collected: <strong>{len(df)}</strong></p>
+                    <p class="lead">Total jobs collected: <strong>{df.link.nunique()}</strong></p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <p class="lead">Updated: {last_updated_time}</p>
